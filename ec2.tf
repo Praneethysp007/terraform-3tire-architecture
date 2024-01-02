@@ -10,7 +10,7 @@ resource "aws_instance" "nop1" {
     type = "ssh"
     user = "ubuntu"
     private_key = file("/home/ubuntu/id_rsa")
-    host = self.public_ip
+    host = aws_instance.nop1.public_ip
   }
   provisioner "file" {
     source = "nopcommerce.yaml"
@@ -54,7 +54,7 @@ resource "aws_instance" "nop2" {
     type = "ssh"
     user = "ubuntu"
     private_key = file("/home/ubuntu/id_rsa")
-    host = self.public_ip
+    host = aws_instance.nop2.public_ip
   }
   provisioner "file" {
     source = "/home/ubuntu/terraform-3tire-architecture/nopcommerce.yaml"
