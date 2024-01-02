@@ -57,21 +57,21 @@ resource "aws_instance" "nop2" {
     host = self.public_ip
   }
   provisioner "file" {
-    source = "nopcommerce.yaml"
+    source = "./nopcommerce.yaml"
     destination = "/home/ubuntu/nopcommerce.yaml"
   }
   provisioner "file" {
-    source = "default"
+    source = "./default"
     destination = "/home/ubuntu/default"
     
   }
   provisioner "file" {
-    source = "nopCommerce.service"
+    source = "./nopCommerce.service"
     destination = "/home/ubuntu/nopCommerce.service"
     
   }
   provisioner "file" {
-    source = "hosts"
+    source = "./hosts"
     destination = "/home/ubuntu/hosts"
     
   }
