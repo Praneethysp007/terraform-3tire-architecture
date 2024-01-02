@@ -57,21 +57,21 @@ resource "aws_instance" "nop2" {
     host = self.public_ip
   }
   provisioner "file" {
-    source = "./nopcommerce.yaml"
+    source = "/home/ubuntu/terraform-3tire-architecture/nopcommerce.yaml"
     destination = "/home/ubuntu/nopcommerce.yaml"
   }
   provisioner "file" {
-    source = "./default"
+    source = "/home/ubuntu/terraform-3tire-architecture/default"
     destination = "/home/ubuntu/default"
     
   }
   provisioner "file" {
-    source = "./nopCommerce.service"
+    source = "/home/ubuntu/terraform-3tire-architecture/nopCommerce.service"
     destination = "/home/ubuntu/nopCommerce.service"
     
   }
   provisioner "file" {
-    source = "./hosts"
+    source = "/home/ubuntu/terraform-3tire-architecture/hosts"
     destination = "/home/ubuntu/hosts"
     
   }
@@ -81,7 +81,7 @@ resource "aws_instance" "nop2" {
       "sudo apt install software-properties-common",
       "sudo add-apt-repository --yes --update ppa:ansible/ansible",
       "sudo apt install ansible -y",
-      "ansible-playbook -i hosts nopcomeerce.yaml"
+      "ansible-playbook -i hosts nopcommerce.yaml"
      ]
   }
 
